@@ -1,6 +1,22 @@
-# terraform-azurerm-avm-template
+# terraform-azurerm-avm-res-machinelearning-workspace
 
-This is a template repo for Terraform Azure Verified Modules.
+Use this module to create a Machine Learning Workspace in Azure.
+
+## Usage
+
+```hcl
+module "machine_learning_workspace" {
+  source = "Azure/avm-res-machinelearning-workspace/azurerm"
+
+  name = "mlworkspace"
+  resource_group = {
+    id   = azurerm_resource_group.example.id
+    name = azurerm_resource_group.example.name
+  }
+  location = azurerm_resource_group.example.location
+  tags     = { environment = "dev" }
+}
+```
 
 Things to do:
 
